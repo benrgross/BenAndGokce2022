@@ -1,10 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 
 function NavBar() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar style={{ backgroundColor: "rgb(181 190 152)" }} expand="lg">
       <Container>
         <Navbar.Brand href="/">Ben & Gokce</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

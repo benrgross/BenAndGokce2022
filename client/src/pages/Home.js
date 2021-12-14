@@ -1,7 +1,12 @@
 import React from "react";
+import SaveTheDateImg from "../components/SaveTheDateImg";
 
 function Home() {
-  return <div>Save the date goes here</div>;
+  return (
+    <div>
+      <SaveTheDateImg />
+    </div>
+  );
 }
 
 export default Home;
