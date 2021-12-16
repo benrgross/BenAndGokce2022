@@ -1,3 +1,3 @@
 module.exports = {
-  Guest: require("./plant"),
+  Guest: require("./guest"),
 };
