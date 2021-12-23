@@ -8,15 +8,8 @@ function About() {
     <div>
       <Row>
         <Col></Col>
-        <Col>
+        <Col md={6} sm={6} lg={6}>
           <EmojiImage />
-        </Col>
-        <Col></Col>
-      </Row>
-      <Row>
-        <Col></Col>
-        <Col>
-          {" "}
           <AboutText />
         </Col>
         <Col></Col>
