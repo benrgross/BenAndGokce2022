@@ -7,8 +7,8 @@ function RSVP() {
     <>
       <Row>
         <Col></Col>
-        <Col sm={4} md={4} lg={4}>
-          <Container>
+        <Col>
+          <Container className="form-cont">
             <RSVPform />
           </Container>
         </Col>

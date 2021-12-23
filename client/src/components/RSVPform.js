@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Col, Row, Container } from "react-bootstrap";
 
 function RSVPform() {
   return (
@@ -16,9 +16,17 @@ function RSVPform() {
         <Form.Label>First and Last Name</Form.Label>
         <Form.Control type="name" placeholder="first and last name" />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
+      <Container>
+        <Row>
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check type="checkbox" label="RSVP Yes" />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check type="checkbox" label="RSVP No" />
+          </Form.Group>
+        </Row>
+      </Container>
+
       <Button variant="primary" type="submit">
         Submit
       </Button>
