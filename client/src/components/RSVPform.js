@@ -29,11 +29,13 @@ function RSVPform() {
 
     const find = {
       email: guestInfo.email,
+      no: guestInfo.rsvpNo,
+      RSVP: guestInfo.rsvpYes,
     };
 
     console.log(find, guest);
 
-    const { data } = await API.getGuest(find);
+    const { data } = await API.updateGuest(find);
     await console.log("guest", data);
   };
 
@@ -58,19 +60,14 @@ function RSVPform() {
 
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check
-          value="false"
+          //   value="false"
           ref={rsvpYesRef}
           type="checkbox"
           label="RSVP Yes"
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check
-          ref={rsvpNoRef}
-          value="false"
-          type="checkbox"
-          label="RSVP No"
-        />
+        <Form.Check ref={rsvpNoRef} type="checkbox" label="RSVP No" />
       </Form.Group>
       <Button variant="primary" type="submit" onClick={handleSubmit}>
         Submit
