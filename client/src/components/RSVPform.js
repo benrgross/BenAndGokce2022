@@ -4,13 +4,7 @@ import API from "../utils/API";
 
 function RSVPform() {
   // create initial state with state hook
-  const [guest, setGuest] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    rsvpYes: false,
-    rsvpNo: false,
-  });
+  const [guest, setGuest] = useState({});
 
   // define my form references
   const nameRef = useRef();
@@ -23,7 +17,7 @@ function RSVPform() {
     e.preventDefault();
 
     // define the guests info from the form
-    const guestInfo = await {
+    const guestInfo = {
       firstName: nameRef.current.value.split(" ")[0].trim(),
       lastName: nameRef.current.value.split(" ")[1].trim(),
       email: emailRef.current.value,
@@ -31,10 +25,16 @@ function RSVPform() {
       rsvpYes: rsvpYesRef.current.checked,
     };
     // set guest info in state
-    await setGuest(guestInfo);
+    setGuest(guestInfo);
 
-    const { data } = await API.getGuest(guest.firstName, guest.lastName);
-    console.log("guest", data);
+    const find = {
+      email: guestInfo.email,
+    };
+
+    console.log(find, guest);
+
+    const { data } = await API.getGuest(find);
+    await console.log("guest", data);
   };
 
   return (

@@ -4,7 +4,7 @@ const guestController = require("../../controllers/guestController");
 router
   .route("/")
   .get(guestController.findAll)
-  .post(plantContoller.findOne)
-  .put(plantContoller.update);
+  .post(guestController.findOne)
+  .put(guestController.update);
 
 module.exports = router;

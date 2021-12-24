@@ -5,6 +5,16 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/wedding");
 
 const guestSeed = [
   {
+    first_name: "Ben",
+    last_name: "Gross",
+    email: "benrgross@gmail.com",
+    RSVP: false,
+    no: false,
+    maybe: false,
+    plus_1: true,
+  },
+
+  {
     first_name: "Kyle",
     last_name: "Bouquet",
     email: "kylebouquet@gmail.com",
@@ -223,7 +233,7 @@ const guestSeed = [
   {
     first_name: "Jill",
     last_name: "Gross",
-    email: "jillgross.wildware@gmail.com,",
+    email: "jillgross.wildware@gmail.com",
     RSVP: false,
     no: false,
     maybe: false,

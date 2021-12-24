@@ -7,14 +7,10 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   findOne: function (req, res) {
-    db.Guest.find({
-      $or: [
-        { "name.first": { $regex: req.body.firstName, $options: "-i" } },
-        { "name.last": { $regex: req.body.lastName, $options: "-i" } },
-      ],
-    })
+    console.log(req.body);
+    db.Guest.findOne({ email: req.body.email })
       .then((dbModel) => res.json(dbModel))
-      .catch((err) => res.status(422).json(err));
+      .catch((error) => res.status(422).json(error));
   },
   update: function (req, res) {
     db.Guest.findOneAndUpdate({ last_name: req.body.lastName }, req.body)
