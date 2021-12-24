@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import RSVPform from "../components/RSVPform";
+import Plus1 from "../components/Plus1";
 
 function RSVP() {
   return (

@@ -1,8 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import API from "../utils/API";
-import { Form, Button, H1 } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 
-function Plus1() {
+function Plus1({ guest }) {
+  const [plus1, setPlust1] = useState();
+
   const nameRef = useRef();
   const rsvpYesRef = useRef(null);
   const rsvpNoRef = useRef(null);
@@ -13,30 +15,23 @@ function Plus1() {
 
     // define the guests info from the form
     const guestInfo = {
+      email: guest,
       firstName: nameRef.current.value.split(" ")[0].trim(),
       lastName: nameRef.current.value.split(" ")[1].trim(),
-      email: emailRef.current.value,
-      rsvpNo: rsvpNoRef.current.checked,
-      rsvpYes: rsvpYesRef.current.checked,
+      guestEmail: emailRef.current.value,
+      no: rsvpNoRef.current.checked,
+      RSVP: rsvpYesRef.current.checked,
     };
     // set guest info in state
 
-    const updatePlus1 = {
-      email: guestInfo.email,
-      no: guestInfo.rsvpNo,
-      RSVP: guestInfo.rsvpYes,
-    };
-
-    console.log(updatePlus1);
-
-    const { data } = await API.updateGuestPlus1(updatePlus1);
+    const { data } = await API.updateGuestPlus1(guestInfo);
     await console.log("guest", data);
   };
 
   return (
     <div>
       <Form>
-        <H1>You have a plus one, please RSVP for them </H1>
+        <h3>You have a plus one, please RSVP for them </h3>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control ref={emailRef} type="email" placeholder="Enter email" />

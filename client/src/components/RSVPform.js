@@ -1,10 +1,12 @@
 import React, { useRef, useState } from "react";
 import { Form, Button, Row, Container } from "react-bootstrap";
+import Plus1 from "./Plus1";
 import API from "../utils/API";
 
 function RSVPform() {
   // create initial state with state hook
   const [guest, setGuest] = useState({});
+  const [plus1, setPlus1] = useState(false);
 
   // define my form references
   const nameRef = useRef();
@@ -37,42 +39,55 @@ function RSVPform() {
 
     const { data } = await API.updateGuest(find);
     await console.log("guest", data);
+
+    if (data.plus_1 === true) setPlus1(true);
+    console.log(plus1);
   };
 
   return (
-    <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control ref={emailRef} type="email" placeholder="Enter email" />
-        <Form.Text className="text-muted">
-          enter the same email the invitation was sent to.
-        </Form.Text>
-      </Form.Group>
+    <>
+      {plus1 ? (
+        <Plus1 guest={guest.email} />
+      ) : (
+        <Form>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              ref={emailRef}
+              type="email"
+              placeholder="Enter email"
+            />
+            <Form.Text className="text-muted">
+              enter the same email the invitation was sent to.
+            </Form.Text>
+          </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>First and Last Name</Form.Label>
-        <Form.Control
-          ref={nameRef}
-          type="name"
-          placeholder="first and last name"
-        />
-      </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>First and Last Name</Form.Label>
+            <Form.Control
+              ref={nameRef}
+              type="name"
+              placeholder="first and last name"
+            />
+          </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check
-          //   value="false"
-          ref={rsvpYesRef}
-          type="checkbox"
-          label="RSVP Yes"
-        />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check ref={rsvpNoRef} type="checkbox" label="RSVP No" />
-      </Form.Group>
-      <Button variant="primary" type="submit" onClick={handleSubmit}>
-        Submit
-      </Button>
-    </Form>
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check
+              //   value="false"
+              ref={rsvpYesRef}
+              type="checkbox"
+              label="RSVP Yes"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check ref={rsvpNoRef} type="checkbox" label="RSVP No" />
+          </Form.Group>
+          <Button variant="primary" type="submit" onClick={handleSubmit}>
+            Submit
+          </Button>
+        </Form>
+      )}
+    </>
   );
 }
 
