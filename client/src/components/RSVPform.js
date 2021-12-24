@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Row, Container } from "react-bootstrap";
 
 function RSVPform() {
+  // create initial state with state hook
   const [guest, setGuest] = useState({
     firstName: "",
     lastName: "",
@@ -9,17 +10,18 @@ function RSVPform() {
     rsvpYes: false,
     rsvpNo: false,
   });
-  console.log(guest);
+
+  // define my form references
   const nameRef = useRef();
   const rsvpYesRef = useRef(null);
   const rsvpNoRef = useRef(null);
   const emailRef = useRef();
 
+  // function that extracts form value and sets it in state
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("click");
-
+    // define the guests info from the form
     const guestInfo = await {
       firstName: nameRef.current.value.split(" ")[0].trim(),
       lastName: nameRef.current.value.split(" ")[1].trim(),
@@ -27,9 +29,8 @@ function RSVPform() {
       rsvpNo: rsvpNoRef.current.checked,
       rsvpYes: rsvpYesRef.current.checked,
     };
-
+    // set guest info in state
     setGuest(guestInfo);
-    console.log("guest info", guestInfo);
   };
 
   return (
