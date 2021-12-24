@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Form, Button, Row, Container } from "react-bootstrap";
+import API from "../utils/API";
 
 function RSVPform() {
   // create initial state with state hook
@@ -30,7 +31,10 @@ function RSVPform() {
       rsvpYes: rsvpYesRef.current.checked,
     };
     // set guest info in state
-    setGuest(guestInfo);
+    await setGuest(guestInfo);
+
+    const { data } = await API.getGuest(guest.firstName, guest.lastName);
+    console.log("guest", data);
   };
 
   return (
