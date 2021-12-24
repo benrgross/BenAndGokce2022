@@ -7,4 +7,6 @@ router
   .post(guestController.findOne)
   .put(guestController.update);
 
+router.route("/plus1").put(guestController.updatePlus1);
+
 module.exports = router;
