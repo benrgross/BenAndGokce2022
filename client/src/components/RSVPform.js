@@ -1,7 +1,15 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Form, Button, Row, Container } from "react-bootstrap";
 
 function RSVPform() {
+  const [guest, setGuest] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    rsvpYes: false,
+    rsvpNo: false,
+  });
+  console.log(guest);
   const nameRef = useRef();
   const rsvpYesRef = useRef(null);
   const rsvpNoRef = useRef(null);
@@ -13,11 +21,14 @@ function RSVPform() {
     console.log("click");
 
     const guestInfo = await {
-      name: nameRef.current.value,
+      firstName: nameRef.current.value.split(" ")[0].trim(),
+      lastName: nameRef.current.value.split(" ")[1].trim(),
       email: emailRef.current.value,
       rsvpNo: rsvpNoRef.current.checked,
       rsvpYes: rsvpYesRef.current.checked,
     };
+
+    setGuest(guestInfo);
     console.log("guest info", guestInfo);
   };
 
