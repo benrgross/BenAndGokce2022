@@ -15,8 +15,8 @@ function RSVPform() {
     const guestInfo = await {
       name: nameRef.current.value,
       email: emailRef.current.value,
-      rsvpNo: rsvpNoRef.current.value,
-      rsvpYes: rsvpYesRef.current.value,
+      rsvpNo: rsvpNoRef.current.checked,
+      rsvpYes: rsvpYesRef.current.checked,
     };
     console.log("guest info", guestInfo);
   };
