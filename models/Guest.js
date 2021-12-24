@@ -6,8 +6,8 @@ const GuestSchema = new Schema({
   last_name: String,
   email: String,
   RSVP: false,
+  RSVP_plus1: false,
   no: false,
-  maybe: false,
   plus_1: false,
 });
 
