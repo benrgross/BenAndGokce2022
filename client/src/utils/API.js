@@ -13,4 +13,8 @@ export default {
   updateGuestPlus1: function (guest) {
     return axios.put("/api/guests/plus1", guest);
   },
+
+  adminLogin: function (cred) {
+    return axios.post("/api/auth/login");
+  },
 };
