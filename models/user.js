@@ -4,23 +4,12 @@ const bcrypt = require("bcryptjs");
 SALT_WORK_FACTOR = 10;
 
 const userSchema = new Schema({
-  email: {
-    type: String,
-    // match: [/.+@.+\..+/, "Please enter a valid e-mail address"],
-    required: true,
-    unique: true,
-  },
+  username: String,
   password: {
     type: String,
     required: true,
     // validate: [({ length }) => length >= 6, "Password minimum of 6 characters"],
   },
-  accounts: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Account",
-    },
-  ],
 });
 
 userSchema.pre("save", async function (next) {

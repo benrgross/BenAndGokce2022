@@ -9,12 +9,12 @@ passport.use(
   "signup",
   new LocalStrategy(
     {
-      usernameField: "username",
+      usernameField: "email",
       passwordField: "password",
     },
-    async (username, password, done) => {
+    async (email, password, done) => {
       try {
-        const user = await db.Admin.create({ username, password });
+        const user = await db.User.create({ email, password });
 
         return done(null, user);
       } catch (error) {
@@ -28,12 +28,12 @@ passport.use(
   "login",
   new LocalStrategy(
     {
-      usernameField: "username",
+      usernameField: "email",
       passwordField: "password",
     },
-    async (username, password, done) => {
+    async (email, password, done) => {
       try {
-        const user = await db.Admin.findOne({ username });
+        const user = await db.User.findOne({ email });
 
         if (!user) {
           return done(null, false, { message: "User not found" });
@@ -61,7 +61,7 @@ passport.use(
     },
 
     async function (jwtPayload, cb) {
-      const user = await db.Admin.find({ _id: jwtPayload });
+      const user = await db.User.find({ _id: jwtPayload });
       try {
         return cb(null, user);
       } catch (err) {
