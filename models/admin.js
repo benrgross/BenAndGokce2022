@@ -8,11 +8,12 @@ const adminSchema = new Schema({
   password: {
     type: String,
     required: true,
+    // validate: [({ length }) => length >= 6, "Password minimum of 6 characters"],
   },
 });
 
 adminSchema.pre("save", async function (next) {
-  const user = this;
+  const admin = this;
   const hash = await bcrypt.hash(this.password, 10);
 
   this.password = hash;
@@ -20,8 +21,8 @@ adminSchema.pre("save", async function (next) {
 });
 
 adminSchema.methods.isValidPassword = async function (password) {
-  const user = this;
-  const compare = await bcrypt.compare(password, user.password);
+  const admin = this;
+  const compare = await bcrypt.compare(password, admin.password);
 
   return compare;
 };

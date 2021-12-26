@@ -1,12 +1,8 @@
 const mongoose = require("mongoose");
 const db = require("../models");
+require("dotenv").config();
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/wedding");
-
-const adminSeed = {
-  username: "admin",
-  password: "process.env.ADMIN_PASSWORD",
-};
 
 const guestSeed = [
   {
@@ -299,17 +295,6 @@ const guestSeed = [
     plus_1: true,
   },
 ];
-
-db.Admin.remove({})
-  .then(() => db.Admin.collection.insertMany(adminSeed))
-  .then((data) => {
-    console.log(data.result.n + " records inserted!");
-    process.exit(0);
-  })
-  .catch((err) => {
-    console.error(err);
-    process.exit(1);
-  });
 
 db.Guest.remove({})
   .then(() => db.Guest.collection.insertMany(guestSeed))
