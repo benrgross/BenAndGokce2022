@@ -3,15 +3,15 @@ const Schema = mongoose.Schema;
 const bcrypt = require("bcryptjs");
 SALT_WORK_FACTOR = 10;
 
-const AdminSchema = new Schema({
-  username: admin,
+const adminSchema = new Schema({
+  username: String,
   password: {
     type: String,
     required: true,
   },
 });
 
-userSchema.pre("save", async function (next) {
+adminSchema.pre("save", async function (next) {
   const user = this;
   const hash = await bcrypt.hash(this.password, 10);
 
@@ -19,13 +19,13 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-userSchema.methods.isValidPassword = async function (password) {
+adminSchema.methods.isValidPassword = async function (password) {
   const user = this;
   const compare = await bcrypt.compare(password, user.password);
 
   return compare;
 };
 
-const Admin = mongoose.model("Admin", AdminSchema);
+const Admin = mongoose.model("Admin", adminSchema);
 
 module.exports = Admin;
