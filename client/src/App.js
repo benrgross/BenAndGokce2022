@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import RSVP from "./pages/RSVP";
 import AdminLogin from "./pages/AdminLogin";
+import SignUpAdmin from "./pages/SignUpAdmin";
 import "./App.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/about" component={About} />
           <Route exact path="/rsvp" component={RSVP} />
           <Route exact path="/admin" component={AdminLogin} />
+          <Route exact path="/signIn" component={SignUpAdmin} />
         </Switch>
       </>
     </Router>

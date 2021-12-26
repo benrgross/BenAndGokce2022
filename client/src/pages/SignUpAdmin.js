@@ -1,9 +1,22 @@
 import React, { useRef } from "react";
+import API from "../utils/API";
 import { Form, Button, Row, Col, Container } from "react-bootstrap";
 
 function SignUpAdmin() {
   const userRef = useRef();
   const passRef = useRef();
+
+  const signUp = async (e) => {
+    e.preventDefault();
+
+    const creds = {
+      username: userRef.current.value,
+      password: userRef.current.value,
+    };
+
+    const { data } = API.SignUpAdmin(creds);
+    console.log(data);
+  };
 
   return (
     <div>
@@ -33,6 +46,8 @@ function SignUpAdmin() {
               </Form.Group>
 
               <Button variant="primary" type="submit">
+                {" "}
+                onClick={signUp}
                 Sign Up
               </Button>
             </Form>

@@ -26,4 +26,15 @@ router.post("/login", async (req, res, next) => {
   })(req, res, next);
 });
 
+router.post(
+  "/signup",
+  passport.authenticate("signup", { session: false }),
+  async (req, res, next) => {
+    res.json({
+      message: "Signup successful",
+      admin: req.admin,
+    });
+  }
+);
+
 module.exports = router;
