@@ -14,9 +14,9 @@ passport.use(
     },
     async (username, password, done) => {
       try {
-        const admin = await db.Admin.create({ username, password });
+        const user = await db.Admin.create({ username, password });
 
-        return done(null, admin);
+        return done(null, user);
       } catch (error) {
         done(error);
       }
@@ -33,19 +33,19 @@ passport.use(
     },
     async (username, password, done) => {
       try {
-        const admin = await db.Admin.findOne({ username });
+        const user = await db.Admin.findOne({ username });
 
-        if (!admin) {
+        if (!user) {
           return done(null, false, { message: "User not found" });
         }
 
-        const validate = await admin.isValidPassword(password);
+        const validate = await user.isValidPassword(password);
 
         if (!validate) {
           return done(null, false, { message: "Wrong Password" });
         }
 
-        return done(null, admin, { message: "Logged in Successfully" });
+        return done(null, user, { message: "Logged in Successfully" });
       } catch (error) {
         return done(error);
       }
@@ -61,9 +61,9 @@ passport.use(
     },
 
     async function (jwtPayload, cb) {
-      const admin = await db.Admin.find({ _id: jwtPayload });
+      const user = await db.Admin.find({ _id: jwtPayload });
       try {
-        return cb(null, admin);
+        return cb(null, user);
       } catch (err) {
         return cb(err);
       }

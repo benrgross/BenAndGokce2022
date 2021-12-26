@@ -1,9 +1,23 @@
 import React, { useRef } from "react";
+import API from "../utils/API";
 import { Form, Button, Row, Col, Container } from "react-bootstrap";
 
 function AdminLogin() {
   const userRef = useRef();
   const passRef = useRef();
+
+  const login = async (e) => {
+    e.preventDefault();
+
+    const creds = {
+      username: userRef.current.value,
+      password: userRef.current.value,
+    };
+
+    const { data } = API.adminLogin(creds);
+    console.log(data);
+  };
+
   return (
     <div>
       <Container fluid style={{ marginTop: "10%" }}>
@@ -30,7 +44,7 @@ function AdminLogin() {
                 />
               </Form.Group>
 
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" onClick={login}>
                 Submit
               </Button>
             </Form>

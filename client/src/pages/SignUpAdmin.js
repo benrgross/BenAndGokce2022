@@ -14,7 +14,8 @@ function SignUpAdmin() {
       password: userRef.current.value,
     };
 
-    const { data } = API.adminSignUp(creds);
+    const data = API.adminSignUp(creds);
+
     console.log(data);
   };
 
