@@ -32,9 +32,8 @@ router.post(
   async (req, res, next) => {
     res.json({
       message: "Signup successful",
-      admin: req.admin,
+      user: req.user,
     });
   }
 );
-
 module.exports = router;

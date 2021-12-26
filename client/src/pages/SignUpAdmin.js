@@ -6,7 +6,7 @@ function SignUpAdmin() {
   const userRef = useRef();
   const passRef = useRef();
 
-  const signUp = async (e) => {
+  const signUpUser = async (e) => {
     e.preventDefault();
 
     const creds = {
@@ -14,7 +14,7 @@ function SignUpAdmin() {
       password: userRef.current.value,
     };
 
-    const { data } = API.SignUpAdmin(creds);
+    const { data } = API.adminSignUp(creds);
     console.log(data);
   };
 
@@ -45,9 +45,7 @@ function SignUpAdmin() {
                 />
               </Form.Group>
 
-              <Button variant="primary" type="submit">
-                {" "}
-                onClick={signUp}
+              <Button variant="primary" type="submit" onClick={signUpUser}>
                 Sign Up
               </Button>
             </Form>

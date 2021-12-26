@@ -19,6 +19,6 @@ export default {
   },
 
   adminSignUp: function (cred) {
-    return axios.post("/api/auth/signup");
+    return axios.post("/api/auth/signup", cred);
   },
 };
