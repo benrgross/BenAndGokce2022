@@ -15,7 +15,7 @@ export default {
   },
 
   adminLogin: function (cred) {
-    return axios.post("/api/auth/login");
+    return axios.post("/api/auth/login", cred);
   },
 
   adminSignUp: function (cred) {

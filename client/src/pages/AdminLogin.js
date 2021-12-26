@@ -14,7 +14,7 @@ function AdminLogin() {
       password: userRef.current.value,
     };
 
-    const { data } = API.adminLogin(creds);
+    const { data } = await API.adminLogin(creds);
     console.log(data);
   };
 

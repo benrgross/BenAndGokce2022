@@ -4,17 +4,18 @@ const db = require("../models");
 const passportJWT = require("passport-jwt");
 const JwtStrategy = passportJWT.Strategy;
 const ExtractJwt = passportJWT.ExtractJwt;
+require("dotenv").config();
 
 passport.use(
   "signup",
   new LocalStrategy(
     {
-      usernameField: "email",
+      usernameField: "username",
       passwordField: "password",
     },
-    async (email, password, done) => {
+    async (username, password, done) => {
       try {
-        const user = await db.User.create({ email, password });
+        const user = await db.User.create({ username, password });
 
         return done(null, user);
       } catch (error) {
@@ -28,12 +29,13 @@ passport.use(
   "login",
   new LocalStrategy(
     {
-      usernameField: "email",
+      usernameField: "username",
       passwordField: "password",
     },
-    async (email, password, done) => {
+    async (username, password, done) => {
       try {
-        const user = await db.User.findOne({ email });
+        console.log(username);
+        const user = await db.User.findOne({ username });
 
         if (!user) {
           return done(null, false, { message: "User not found" });
@@ -57,7 +59,7 @@ passport.use(
   new JwtStrategy(
     {
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      secretOrKey: "process.env.PASSPORT_SECRET",
+      secretOrKey: process.env.PASSPORT_SECRET,
     },
 
     async function (jwtPayload, cb) {
