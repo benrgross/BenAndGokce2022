@@ -1,7 +1,7 @@
 import React from "react";
 
 function AdminTables() {
-  return <div></div>;
+  return <div>hello</div>;
 }
 
 export default AdminTables;

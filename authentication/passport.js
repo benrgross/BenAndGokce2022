@@ -34,7 +34,6 @@ passport.use(
     },
     async (username, password, done) => {
       try {
-        console.log(username);
         const user = await db.User.findOne({ username });
 
         if (!user) {
