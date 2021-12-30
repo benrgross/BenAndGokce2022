@@ -5,7 +5,7 @@ import { Form, Button, Row, Col, Container } from "react-bootstrap";
 
 function AdminLogin() {
   const [tokenState, setTokenState] = useState(false);
-  const [guests, setGuests] = useState();
+
   const userRef = useRef();
   const passRef = useRef();
 
