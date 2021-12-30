@@ -5,6 +5,7 @@ import { Form, Button, Row, Col, Container } from "react-bootstrap";
 
 function AdminLogin() {
   const [tokenState, setTokenState] = useState(false);
+  const [guests, setGuests] = useState();
   const userRef = useRef();
   const passRef = useRef();
 
@@ -12,11 +13,11 @@ function AdminLogin() {
     checkLogin();
   }, []);
 
-  const checkLogin = () => {
+  const checkLogin = async () => {
     if (localStorage.getItem("token")) {
       JSON.parse(localStorage.getItem("token"));
       setTokenState(true);
-    }
+    } else setTokenState(false);
   };
   const login = async (e) => {
     e.preventDefault();

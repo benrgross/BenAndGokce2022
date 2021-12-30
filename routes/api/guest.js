@@ -9,4 +9,6 @@ router
 
 router.route("/plus1").put(guestController.updatePlus1);
 
+router.route("/findAll").get(guestController.findAll);
+
 module.exports = router;

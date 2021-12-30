@@ -6,6 +6,10 @@ export default {
     return axios.post("/api/guests/", guest);
   },
 
+  getAllGuests: function () {
+    return axios.get("/api/guests/findAll/");
+  },
+
   updateGuest: function (guest) {
     return axios.put("/api/guests/", guest);
   },
