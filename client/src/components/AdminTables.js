@@ -6,18 +6,21 @@ import { Row, Col, Conatainer } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import TBody from "./TBody";
 
-function AdminTables() {
-  const [guests, setGuests] = useState();
+function AdminTables({ guests }) {
+  console.log("tabble", guests);
 
-  useEffect(() => {
-    getGuests();
-  }, []);
+  console.log(guests.map((guest) => guest.first_name));
+  // const [guests, setGuests] = useState();
 
-  const getGuests = async () => {
-    const { data } = API.getAllGuests();
-    setGuests(data);
-    console.log(data);
-  };
+  // useEffect(() => {
+  //   getGuests();
+  // }, []);
+
+  // const getGuests = async () => {
+  //   const { data } = API.getAllGuests();
+  //   setGuests(data);
+  //   console.log(data);
+  // };
 
   //get all the guest to fill table info
 
@@ -36,7 +39,7 @@ function AdminTables() {
                 <th>Plus 1</th>
               </tr>
             </thread>
-            <TBody />
+            <TBody guests={guests} />
           </Table>
         </Col>
       </Row>

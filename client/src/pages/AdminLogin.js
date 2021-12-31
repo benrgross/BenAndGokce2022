@@ -5,13 +5,21 @@ import { Form, Button, Row, Col, Container } from "react-bootstrap";
 
 function AdminLogin() {
   const [tokenState, setTokenState] = useState(false);
+  const [guests, setGuests] = useState([]);
 
   const userRef = useRef();
   const passRef = useRef();
 
   useEffect(() => {
     checkLogin();
+    getGuests();
   }, []);
+
+  const getGuests = async () => {
+    const { data } = await API.getAllGuests();
+    setGuests(data);
+    console.log(data);
+  };
 
   const checkLogin = async () => {
     if (localStorage.getItem("token")) {
@@ -39,7 +47,7 @@ function AdminLogin() {
     <div>
       <Container fluid style={{ marginTop: "10%" }}>
         {tokenState ? (
-          <AdminTables />
+          <AdminTables guests={guests} />
         ) : (
           <Row>
             <Col></Col>
