@@ -1,5 +1,5 @@
 import React from "react";
-import { Table } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 function TBody({ guests }) {
   return (
@@ -15,17 +15,22 @@ function TBody({ guests }) {
         </tr>
       </thead>
       <tbody>
-        {guests.map((guest) => {
+        {guests.map((guest, i) => {
           return (
             <tr
               key={guest._id}
               className=" text-center md:flex bg-white shadow rounded-md items-center justify-between "
             >
-              <td> 1 </td>
+              <td> {i + 1} </td>
               <td> {guest.first_name}</td>
               <td> {guest.last_name}</td>
               <td> {guest.email}</td>
               {guest.RSVP ? <td>yes</td> : <td>no</td>}
+              {guest.plus_1 ? <td>yes</td> : <td>no</td>}
+              <td>
+                {" "}
+                <Button variant="primary">Send Email</Button>
+              </td>
             </tr>
           );
         })}

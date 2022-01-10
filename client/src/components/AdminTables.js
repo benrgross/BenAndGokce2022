@@ -8,7 +8,7 @@ import TBody from "./TBody";
 
 function AdminTables({ guests }) {
   return (
-    <Container fluid>
+    <Container fluid id="main-table">
       <Row>
         <Col>
           <Table striped bordered hover responsive>

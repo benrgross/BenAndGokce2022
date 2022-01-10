@@ -29,3 +29,7 @@ code {
 .form-cont {
   margin-top: 20%;
 }
+
+#main-table {
+  width: 50%;
+}
