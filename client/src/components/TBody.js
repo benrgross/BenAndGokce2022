@@ -4,7 +4,7 @@ import { Table } from "react-bootstrap";
 function TBody({ guests }) {
   return (
     <>
-      <thread>
+      <thead>
         <tr>
           <th>#</th>
           <th>First Name</th>
@@ -13,7 +13,7 @@ function TBody({ guests }) {
           <th>RSVP</th>
           <th>Plus 1</th>
         </tr>
-      </thread>
+      </thead>
       <tbody>
         {guests.map((guest) => {
           return (
