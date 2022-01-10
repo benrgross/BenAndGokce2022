@@ -4,24 +4,31 @@ import AdminTables from "../components/AdminTables";
 import { Form, Button, Row, Col, Container } from "react-bootstrap";
 
 function AdminLogin() {
+  // Define state hooks
   const [tokenState, setTokenState] = useState(false);
   const [guests, setGuests] = useState([]);
 
+  // form reffs
   const userRef = useRef();
   const passRef = useRef();
 
+  // page load function calls
   useEffect(() => {
     checkLogin();
     getGuests();
   }, []);
 
+  // Function to get guests in database
   const getGuests = async () => {
+    //GET all gests from db
     const { data } = await API.getAllGuests();
+    // set guests in state
     setGuests(data);
-    console.log(data);
   };
 
+  // log in function with token
   const checkLogin = async () => {
+    // if token in local store -> authorized app
     if (localStorage.getItem("token")) {
       JSON.parse(localStorage.getItem("token"));
       setTokenState(true);
@@ -29,15 +36,17 @@ function AdminLogin() {
   };
   const login = async (e) => {
     e.preventDefault();
-
+    // if no token -> show form and get credentials
     const creds = {
       username: userRef.current.value,
       password: userRef.current.value,
     };
 
+    // log in with passport function
     const { data } = await API.adminLogin(creds);
     const { token } = data;
 
+    // set token in local storage
     localStorage.setItem("token", JSON.stringify(token));
     setTokenState(true);
     console.log(data);
