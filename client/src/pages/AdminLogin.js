@@ -26,6 +26,8 @@ function AdminLogin() {
     setGuests(data);
   };
 
+  // NOTE: Handle error and alerts. use boolean hooks to show error message
+
   // log in function with token
   const checkLogin = async () => {
     // if token in local store -> authorized app

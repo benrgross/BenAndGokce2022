@@ -2,18 +2,33 @@ import React from "react";
 import { Table } from "react-bootstrap";
 
 function TBody({ guests }) {
-  //   console.log(guests.map((guest) => guest.first_name));
   return (
     <>
+      <thread>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>RSVP</th>
+          <th>Plus 1</th>
+        </tr>
+      </thread>
       <tbody>
-        {/* {guests.map((guest) => {
+        {guests.map((guest) => {
           return (
             <tr
               key={guest._id}
               className=" text-center md:flex bg-white shadow rounded-md items-center justify-between "
-            ></tr>
+            >
+              <td> 1 </td>
+              <td> {guest.first_name}</td>
+              <td> {guest.last_name}</td>
+              <td> {guest.email}</td>
+              {guest.RSVP ? <td>yes</td> : <td>no</td>}
+            </tr>
           );
-        })} */}
+        })}
       </tbody>
     </>
   );
