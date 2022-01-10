@@ -7,7 +7,7 @@ const GuestSchema = new Schema({
   email: String,
   RSVP: false,
   no: false,
-  plus_1: false,
+  plus_1: Number,
   plus1_info: [
     {
       first_name: String,

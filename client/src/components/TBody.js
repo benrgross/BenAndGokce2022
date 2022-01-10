@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "react-bootstrap";
 
 function TBody({ guests }) {
@@ -26,7 +26,8 @@ function TBody({ guests }) {
               <td> {guest.last_name}</td>
               <td> {guest.email}</td>
               {guest.RSVP ? <td>yes</td> : <td>no</td>}
-              {guest.plus_1 ? <td>yes</td> : <td>no</td>}
+              <td>{guest.plus_1}</td>
+
               <td>
                 {" "}
                 <Button variant="primary">Send Email</Button>
@@ -34,6 +35,10 @@ function TBody({ guests }) {
             </tr>
           );
         })}
+        <tr>
+          total:{" "}
+          {guests.length + guests.reduce((sum, { plus_1 }) => sum + plus_1, 0)}
+        </tr>
       </tbody>
     </>
   );

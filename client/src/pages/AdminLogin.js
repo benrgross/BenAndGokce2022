@@ -24,6 +24,9 @@ function AdminLogin() {
     const { data } = await API.getAllGuests();
     // set guests in state
     setGuests(data);
+
+    let plus1Sum = data.reduce((sum, { plus_1 }) => sum + plus_1, 0);
+    console.log(plus1Sum);
   };
 
   // NOTE: Handle error and alerts. use boolean hooks to show error message

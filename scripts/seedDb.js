@@ -12,7 +12,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: true,
+    plus_1: 0,
   },
 
   {
@@ -22,7 +22,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: true,
+    plus_1: 1,
   },
   {
     first_name: "Claire",
@@ -31,7 +31,7 @@ const guestSeed = [
     RSVP: true,
     no: false,
     maybe: false,
-    plus_1: false,
+    plus_1: 0,
   },
   {
     first_name: "Madison",
@@ -40,7 +40,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: true,
+    plus_1: 1,
   },
   {
     first_name: "Dylan",
@@ -49,7 +49,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: true,
+    plus_1: 1,
   },
   {
     first_name: "Kira",
@@ -58,7 +58,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: false,
+    plus_1: 0,
   },
   {
     first_name: "Brooke",
@@ -67,7 +67,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: false,
+    plus_1: 0,
   },
   {
     first_name: "Quinn",
@@ -76,7 +76,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: true,
+    plus_1: 1,
   },
   {
     first_name: "Justin",
@@ -85,7 +85,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: false,
+    plus_1: 0,
   },
   {
     first_name: "Brandon",
@@ -94,7 +94,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: true,
+    plus_1: 1,
   },
   {
     first_name: "Jordan",
@@ -103,7 +103,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: false,
+    plus_1: 0,
   },
   {
     first_name: "Sam",
@@ -112,7 +112,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: false,
+    plus_1: 0,
   },
   {
     first_name: "Cameron",
@@ -121,7 +121,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: true,
+    plus_1: 1,
   },
   {
     first_name: "Mike",
@@ -130,7 +130,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: true,
+    plus_1: 1,
   },
   {
     first_name: "Henry",
@@ -139,7 +139,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: true,
+    plus_1: 1,
   },
   {
     first_name: "Alec",
@@ -148,7 +148,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: false,
+    plus_1: 0,
   },
   {
     first_name: "Neil",
@@ -157,7 +157,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: true,
+    plus_1: 1,
   },
   {
     first_name: "Jim",
@@ -166,7 +166,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: true,
+    plus_1: 2,
   },
   {
     first_name: "Michael",
@@ -175,7 +175,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: false,
+    plus_1: 0,
   },
   {
     first_name: "Michael",
@@ -184,7 +184,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: false,
+    plus_1: 0,
   },
   {
     first_name: "Jake",
@@ -193,7 +193,7 @@ const guestSeed = [
     RSVP: true,
     no: false,
     maybe: false,
-    plus_1: true,
+    plus_1: 1,
   },
   {
     first_name: "Lisa",
@@ -202,7 +202,7 @@ const guestSeed = [
     RSVP: true,
     no: false,
     maybe: false,
-    plus_1: false,
+    plus_1: 0,
   },
   {
     first_name: "Adam",
@@ -211,7 +211,7 @@ const guestSeed = [
     RSVP: true,
     no: false,
     maybe: false,
-    plus_1: false,
+    plus_1: 0,
   },
   {
     first_name: "Goga",
@@ -220,7 +220,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: true,
+    plus_1: 1,
   },
   {
     first_name: "Miguel",
@@ -229,7 +229,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: false,
+    plus_1: 0,
   },
   {
     first_name: "Jill",
@@ -238,7 +238,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: false,
+    plus_1: 0,
   },
   {
     first_name: "Scott",
@@ -247,7 +247,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: false,
+    plus_1: 0,
   },
   {
     first_name: "Eric",
@@ -256,7 +256,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: true,
+    plus_1: 1,
   },
   {
     first_name: "Ian",
@@ -265,7 +265,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: true,
+    plus_1: 1,
   },
   {
     first_name: "Jeff",
@@ -274,7 +274,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: true,
+    plus_1: 1,
   },
   {
     first_name: "Ben",
@@ -283,7 +283,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: true,
+    plus_1: 1,
   },
   {
     first_name: "Johnathan",
@@ -292,7 +292,7 @@ const guestSeed = [
     RSVP: false,
     no: false,
     maybe: false,
-    plus_1: true,
+    plus_1: 6,
   },
 ];
 

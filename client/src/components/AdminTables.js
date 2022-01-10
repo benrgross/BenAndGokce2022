@@ -7,6 +7,18 @@ import Table from "react-bootstrap/Table";
 import TBody from "./TBody";
 
 function AdminTables({ guests }) {
+  useEffect(() => {
+    countGuests();
+  }, []);
+
+  const countGuests = () => {
+    let sum = 0;
+    guests.forEach((guest) => {
+      guest.plus_1 = 0 ? (sum += 1) : (sum += 1 + guest.plus_1);
+    });
+
+    console.log(sum);
+  };
   return (
     <Container fluid id="main-table">
       <Row>
